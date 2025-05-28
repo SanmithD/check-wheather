@@ -42,7 +42,7 @@ export default function CityDash() {
         <h1 className="text-3xl font-bold tracking-tight">
           {params.cityName}, {weatherQuery.data.sys.country}
         </h1>
-        <div className="flex gap-2">
+        <div className="flex gap-2 ">
           <Favorite
             data={{ ...weatherQuery.data, name: params.cityName }}
           />

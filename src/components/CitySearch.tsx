@@ -60,9 +60,6 @@ function CitySearch() {
           {query.length > 2 && !isLoading && (
             <CommandEmpty>No cities found.</CommandEmpty>
           )}
-          <CommandGroup heading="Favorites">
-            <CommandItem>Calendar</CommandItem>
-          </CommandGroup>
           <CommandSeparator />
 
           {favorites.length > 0 && (
@@ -94,7 +91,7 @@ function CitySearch() {
             <>
               <CommandSeparator />
               <CommandGroup heading="Recent Searches">
-                <div className="flex items-center justify-between px-2 my-2" >
+                <div className="flex flex-col items-start justify-between px-2 my-2" >
                   <p className="text-xs text-muted-foreground" >Recent Searches</p>
                   <Button
                     variant="ghost"
@@ -106,6 +103,7 @@ function CitySearch() {
                   </Button>
                   {history.map((location) => (
                     <CommandItem
+                    className="grid grid-cols-2 w-full"
                       key={`${location.lat} - ${location.lon} `}
                       value={`${location.lat}|${location.lon}|${location.name}|${location.country}`}
                       onSelect={handleSelect}
@@ -131,6 +129,7 @@ function CitySearch() {
           )}
 
           <CommandSeparator />
+          {/* Suggestion */}
           {locations && locations.length > 0 && (
             <CommandGroup heading="Suggestions">
               {isLoading && (
